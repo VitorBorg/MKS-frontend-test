@@ -10,8 +10,8 @@ type parametersGet = {
 const GetProducts = async ({page, row, sort, order} : parametersGet) => {
     const url = `https://mks-challenge-api-frontend.herokuapp.com/api/v1/products?page=${page}&rows=${row}&sortBy=${sort}&orderBy=${order}`
     
-    const res = await (await axios.get(url)).data;
-    return res;
+    const res = await (await axios.get(url));
+    return res?.data || [];
 };
 
 export default GetProducts;
