@@ -1,5 +1,3 @@
-"use client"; // this is a client component
-//import { Inter } from '@next/font/google'
 import { useEffect, useState } from 'react'
 
 import * as S from "./style" 
@@ -7,7 +5,7 @@ import * as S from "./style"
 import GetProducts from '../../hooks/getProducts'
 import GridCard from '@/components/organisms/gridCards';
 
-//const inter = Inter({ subsets: ['latin'] })
+
 
 export default function Homepage() {
   //const [productsData, setProductsData] = useState([]);

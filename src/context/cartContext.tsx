@@ -58,7 +58,8 @@ export const CartProvider = ({children} : any) => {
         const localStorageProducts = JSON.parse(localStorage.getItem("cart-Items") || '{}');
         const productIndex = localStorageProducts?.findIndex((item : any) => item.productToAdd.id === Id);
 
-        localStorageProducts[productIndex].productToAdd.quantity -= 1;
+        if( localStorageProducts[productIndex].productToAdd.quantity > 0)
+            localStorageProducts[productIndex].productToAdd.quantity -= 1;
         localStorage.setItem("cart-Items", JSON.stringify(localStorageProducts));
         setRefresh(!refresh);
         return;

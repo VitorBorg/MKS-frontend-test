@@ -1,5 +1,4 @@
-"use client"; // this is a client component
-
+"use client"; 
 import PageFooter from "@/components/organisms/footer";
 import PageHeader from "@/components/organisms/header";
 import { CartProvider } from "@/context/cartContext";
