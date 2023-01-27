@@ -1,4 +1,5 @@
 import ProductCard from "@/components/molecules/productCard";
+import { productType } from "@/types/types";
 import React from "react";
 import * as S from "./style";
 
@@ -11,21 +12,18 @@ type products = {
 }[];
 
 const GridCard = (Cards : any) => {
-
-    type productType = {
-        id: number;
-        photo: string;
-        name: string;
-        description: string;
-        price: string;
-    };
-
   return (
     <S.Grid>
         <ul>    
             {Cards.Cards.map((product : productType) => (
             <li key={product.id}>
-              {ProductCard(product.photo, product.name, product.description, product.price, product.id)}
+              {ProductCard({
+                id: product.id, 
+                photo: product.photo, 
+                name: product.name, 
+                price: product.price, 
+                description: product.description
+                })}
             </li>
           ))}
         </ul>

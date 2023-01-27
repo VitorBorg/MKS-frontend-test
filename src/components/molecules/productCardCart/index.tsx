@@ -1,26 +1,37 @@
-import BagIcon from "@/components/atoms/bagIcon";
-import useCart from "@/hooks/useCart";
+//import useCart from "@/hooks/useCart";
+import { useDispatch } from "react-redux";
 import React from "react";
 import * as S from "./style";
 
 import { productCartType } from "@/types/types";
+import { decreaseQuantityProduct, increaseQuantityProduct, removeProduct } from "@/store/cart";
 
 
 const ProductCardCart = ({id, photo, name, price, quantity} : productCartType
 ) => {
-  const { RemoveProduct, IncreaseQuantityProduct, DecreaseQuantityProduct } : any = useCart();
+  //const { RemoveProduct, IncreaseQuantityProduct, DecreaseQuantityProduct } : any = useCart();
+  const dispatch = useDispatch();
 
   
   const handleRemoveItemToCart = () => {
-    RemoveProduct(id);
+
+    dispatch(removeProduct(id))
+
   };
 
   const handleIncreaseQuantityItemToCart = () => {
-    IncreaseQuantityProduct(id);
+    //IncreaseQuantityProduct(id);
+
+
+    dispatch(increaseQuantityProduct(id))
+
   };
 
   const handleDecreaseQuantityItemToCart = () => {
-    DecreaseQuantityProduct(id);
+    //DecreaseQuantityProduct(id);
+
+
+    dispatch(decreaseQuantityProduct(id))
   };
   
   

@@ -4,39 +4,25 @@ import * as S from "./style";
 import { useState } from "react";
 import CartIcon from "@/components/atoms/cartIcon";
 import GridCartCard from "../gridCartCards";
-import useCart from "@/hooks/useCart";
+
+import { useSelector } from "react-redux";
 
 const Cart = () => {
-  const { GetProducts, refresh } : any = useCart();
+  const getProducts = useSelector((state : any) => state.cart.cart)
+  const getProductsPrice = useSelector((state : any) => state.cart.productsPrice)
+
   const [menu, setMenu] = useState(false);
-  const [productsQuantity, setProductsQuantity] = useState(0);
-  const [productsValue, setProductsValue] = useState("");
 
   const handleButtonOpenCart = () => {
-    console.log("ABRE O CARRINHO!")
     setMenu(!menu);
   };
-
-    useEffect(() => {
-      let products = GetProducts();
-      setProductsQuantity(products.length);
-
-      let totalPrice : number;
-      let price : number = products.reduce((totalPrice : number, product : any) => 
-      totalPrice + (parseFloat(product.productToAdd.price) * product.productToAdd.quantity), 0)
-      
-      setProductsValue(new Intl.NumberFormat('pt-BR', {
-        style: 'currency',
-        currency: 'BRL',
-      }).format(parseFloat(price.toString())).slice(0, -3));
-    }, [, refresh]);
 
   return (
 
     <>
         <S.Cart onClick={handleButtonOpenCart}>
           <CartIcon/>
-          <span>{productsQuantity}</span>
+          <span>{getProducts.length}</span>
         </S.Cart>
 
       {menu && (
@@ -62,7 +48,7 @@ const Cart = () => {
 
             <S.Price>
               <S.Span>Total:</S.Span>
-              <S.Span>{productsValue}</S.Span>
+              <S.Span>{getProductsPrice}</S.Span>
             </S.Price>
           </S.Content>
 

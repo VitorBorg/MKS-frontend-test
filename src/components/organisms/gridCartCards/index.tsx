@@ -1,5 +1,6 @@
 import ProductCardCart from "@/components/molecules/productCardCart";
-import useCart from "@/hooks/useCart";
+//import useCart from "@/hooks/useCart";
+import { useSelector } from "react-redux";
 import { productCartType } from "@/types/types";
 import React, { useEffect, useState } from "react";
 import * as S from "./style";
@@ -13,18 +14,14 @@ type products = {
 }[];
 
 const GridCartCard = () => {
-  const { GetProducts, refresh } : any = useCart();
-  const [dataCartProducts, setDataCartProducts] : any = useState([]);
-
-    useEffect(() => {
-      setDataCartProducts(GetProducts());
-    }, [, refresh]);
+  //const { GetProducts, refresh } : any = useCart();
+  const getProducts = useSelector((state : any) => state.cart.cart)
 
   return (
     <S.Grid>
         <ul>    
-            {GetProducts().length != undefined && dataCartProducts.map((product : productCartType) => (
-            <li key={product.id}>
+            {getProducts.length != undefined && getProducts.map((product : productCartType) => (
+            <li key={product.productToAdd.id}>
               {ProductCardCart({
                 id: product.productToAdd.id, 
                 photo:product.productToAdd.photo, 

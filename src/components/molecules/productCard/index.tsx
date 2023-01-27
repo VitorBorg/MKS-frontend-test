@@ -1,26 +1,27 @@
 import BagIcon from "@/components/atoms/bagIcon";
-import useCart from "@/hooks/useCart";
+import { useDispatch } from "react-redux";
+import { addProduct } from "@/store/cart";
 import React from "react";
 import * as S from "./style";
 
-import { productCartType } from "@/types/types";
+import { productCartType, productType } from "@/types/types";
 
 
-const ProductCard = (Image : any, Title : any, Description : any, Price : any, Id : any
+const ProductCard = ({id, photo, name, price, description} : productType
 ) => {
-  const { AddProduct } : any = useCart();
+  const dispatch = useDispatch();
 
-  
   const handleAddItemToCart = () => {
+    //productCartType
     let productToAdd : productCartType = {
-      id: Id,
-      photo: Image,
-      name: Title,
-      price: Price,
+      id: id,
+      photo: photo,
+      name: name,
+      price: price,
       quantity: 1,
     };
 
-    AddProduct(productToAdd);
+    dispatch(addProduct(productToAdd))
   };
   
   
@@ -28,7 +29,7 @@ const ProductCard = (Image : any, Title : any, Description : any, Price : any, I
     <S.Card>
       <S.Content>
         <S.Image>
-          <img src={Image} />
+          <img src={photo} />
         </S.Image>
         <S.NamePrice>
             <S.PriceDiv>
@@ -36,15 +37,15 @@ const ProductCard = (Image : any, Title : any, Description : any, Price : any, I
               new Intl.NumberFormat('pt-BR', {
                 style: 'currency',
                 currency: 'BRL',
-              }).format(Price).slice(0, -3)
+              }).format(parseFloat(price)).slice(0, -3)
               }</h5>
             </S.PriceDiv>
             
-            <h3>{Title}</h3>
+            <h3>{name}</h3>
         </S.NamePrice>
 
         <S.Description>
-            <p>{Description}</p>
+            <p>{description}</p>
         </S.Description>
       </S.Content>
 
