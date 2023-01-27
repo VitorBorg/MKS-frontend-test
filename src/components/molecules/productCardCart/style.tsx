@@ -78,6 +78,11 @@ export const Quantity = styled.div`
   button {
     background: none;
     border: none;
+    cursor: pointer;
+
+    :hover {
+      transform: scale(1.6, 1.6);
+    }
   }
 `;
 
@@ -86,6 +91,7 @@ export const ButtonDeleteProduct = styled.button`
   position: absolute;
   right: -5px;
   top: -7px;  
+  cursor: pointer;
 
   display: flex;
   background: ${(props) => props.theme.colors.black};

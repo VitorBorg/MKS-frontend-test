@@ -24,18 +24,6 @@ export const Grid = styled.div`
         background: ${(props) => props.theme.colors.background};
         border-radius: 8px;
       }
-
-      @media (max-width: ${(props) => props.theme.screen.lg}) {
-        grid-template-columns: 1fr 1fr 1fr;
-      }
-
-      @media (max-width: ${(props) => props.theme.screen.md}) {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      @media (max-width: ${(props) => props.theme.screen.sm}) {
-        grid-template-columns: 1fr;
-      }
     }
   }
 `;

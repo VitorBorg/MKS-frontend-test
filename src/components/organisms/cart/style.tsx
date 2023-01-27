@@ -121,6 +121,7 @@ export const FinishButton = styled.button`
     width: 100%;
     height: 100px;
     border: none;
+    cursor: pointer;
 `
 
 export const Span = styled.span`
