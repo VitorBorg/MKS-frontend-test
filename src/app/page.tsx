@@ -5,7 +5,7 @@ import PageHeader from "@/components/organisms/header";
 import store from "@/store/store";
 import { Provider } from "react-redux";
 
-import Homepage from "@/pages/home.tsx";
+import Homepage from "@/components/templates/home.tsx";
 
 export default function Home() {
   return (

@@ -13,3 +13,14 @@ export type productType = {
     price: string;
     description: string;
 };
+
+export type productAPI = {
+    brand: string;
+    createdAt: string;
+    description: string;
+    id: string;
+    name: string;
+    photo: string;
+    price: string;
+    updateAt: string;
+}

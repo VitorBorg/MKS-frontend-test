@@ -21,7 +21,7 @@ const cartSlice = createSlice({
         (item : any) => (item.productToAdd.id) === productToAdd.id
       );
 
-      if (!existingProduct) {
+      if (localStorageProducts.length < 5 && !existingProduct) {
         let newLocalStorageProducts;
 
         if(localStorageProducts[0] != undefined) 
@@ -60,7 +60,7 @@ const cartSlice = createSlice({
       const localStorageProducts = JSON.parse(localStorage.getItem("cart-Items") || '{}');
       const productIndex = localStorageProducts?.findIndex((item : any) => item.productToAdd.id === id);
 
-      if(localStorageProducts[productIndex].productToAdd.quantity > 0){
+      if(localStorageProducts[productIndex].productToAdd.quantity > 1){
         localStorageProducts[productIndex].productToAdd.quantity -= 1;
         localStorage.setItem("cart-Items", JSON.stringify(localStorageProducts));
         updateValues(state);

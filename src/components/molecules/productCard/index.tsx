@@ -1,6 +1,6 @@
-import BagIcon from "@/components/atoms/bagIcon";
+import BagIcon from "../../atoms/bagIcon/index";
 import { useDispatch } from "react-redux";
-import { addProduct } from "@/store/cart";
+import { addProduct } from "../../../store/cart/index";
 import React from "react";
 import * as S from "./style";
 
@@ -49,7 +49,7 @@ const ProductCard = ({id, photo, name, price, description} : productType
         </S.Description>
       </S.Content>
 
-        <S.Button onClick={handleAddItemToCart}>
+        <S.Button data-testid="comprarButton" onClick={handleAddItemToCart}>
           <BagIcon />
             <span>COMPRAR</span>
         </S.Button>

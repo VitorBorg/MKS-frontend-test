@@ -1,24 +1,17 @@
-import ProductCard from "@/components/molecules/productCard";
-import { productType } from "@/types/types";
+import ProductCard from "../../molecules/productCard/index";
+import { productAPI, productType } from "../../../types/types";
 import React from "react";
 import * as S from "./style";
 
-type products = {
-    id: number;
-    photo: string;
-    name: string;
-    description: string;
-    price: string;
-}[];
+const GridCard = ({Cards} : productAPI[]) => {
 
-const GridCard = (Cards : any) => {
   return (
     <S.Grid>
         <ul>    
-            {Cards.Cards.map((product : productType) => (
+            {Cards.map((product : productAPI) => (
             <li key={product.id}>
               {ProductCard({
-                id: product.id, 
+                id: parseInt(product.id), 
                 photo: product.photo, 
                 name: product.name, 
                 price: product.price, 
