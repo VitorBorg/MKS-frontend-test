@@ -37,7 +37,7 @@ const cartSlice = createSlice({
       const id = action.payload;
       const localStorageProducts = JSON.parse(localStorage.getItem("cart-Items") || '[]');
 
-      const hasProduct = localStorageProducts?.filter((item : productCartType) => item.productToAdd.id !== id);
+      const hasProduct = localStorageProducts?.filter((item : any) => item.productToAdd.id !== id);
       
       localStorage.setItem("cart-Items", JSON.stringify(hasProduct));
       

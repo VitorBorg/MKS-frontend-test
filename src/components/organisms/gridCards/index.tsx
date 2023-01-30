@@ -3,7 +3,7 @@ import { productAPI, productType } from "../../../types/types";
 import React from "react";
 import * as S from "./style";
 
-const GridCard = ({Cards} : productAPI[]) => {
+const GridCard = ({Cards} : any) => {
 
   return (
     <S.Grid>
