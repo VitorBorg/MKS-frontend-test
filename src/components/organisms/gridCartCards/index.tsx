@@ -20,7 +20,7 @@ const GridCartCard = () => {
   return (
     <S.Grid>
         <ul>    
-            {getProducts.length != undefined && getProducts.map((product : productCartType) => (
+            {getProducts.length != undefined && getProducts.map((product : any) => (
             <li key={product.productToAdd.id}>
               {ProductCardCart({
                 id: product.productToAdd.id, 
