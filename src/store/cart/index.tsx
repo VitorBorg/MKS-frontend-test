@@ -2,11 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 import { productCartType } from "@/types/types";
 
 const initialState = {
-  cart: JSON.parse(localStorage.getItem("cart-Items") || '[]'),
-  productsPrice: (
-    JSON.parse(localStorage.getItem("cart-Items") || '[]')?.reduce((totalPrice : number, product : any) => 
-      totalPrice + (parseFloat(product.productToAdd.price) * product.productToAdd.quantity), 0)
-  ) || 'R$0'
+  cart: '[]',
+  productsPrice: 'R$0'
 };
 
 const cartSlice = createSlice({
