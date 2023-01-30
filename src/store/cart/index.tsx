@@ -62,6 +62,18 @@ const cartSlice = createSlice({
         localStorage.setItem("cart-Items", JSON.stringify(localStorageProducts));
         updateValues(state);
       }
+    },
+    updateData: (state : any) => {
+      state.cart = JSON.parse(localStorage.getItem("cart-Items") || '[]');
+            
+      state.productsPrice = JSON.parse(localStorage.getItem("cart-Items") || '[]')?.reduce((totalPrice : number, product : any) => 
+      totalPrice + (parseFloat(product.productToAdd.price) * product.productToAdd.quantity), 0)
+      || 'R$0';
+    
+      state.productsPrice = new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+      }).format(parseFloat(state.productsPrice.toString())).slice(0, -3);
     }
   }
 });
@@ -79,6 +91,6 @@ const updateValues = (state : any) => {
   }).format(parseFloat(state.productsPrice.toString())).slice(0, -3);
 }
 
-export const { addProduct, removeProduct, increaseQuantityProduct, decreaseQuantityProduct } = cartSlice.actions;
+export const { addProduct, removeProduct, increaseQuantityProduct, decreaseQuantityProduct, updateData } = cartSlice.actions;
 
 export default cartSlice.reducer;

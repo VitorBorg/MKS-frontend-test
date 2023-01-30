@@ -6,16 +6,24 @@ import CartIcon from "@/components/atoms/cartIcon";
 import GridCartCard from "../gridCartCards";
 
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { updateData } from "../../../store/cart/index";
 
 const Cart = () => {
   const getProducts = useSelector((state : any) => state.cart.cart)
   const getProductsPrice = useSelector((state : any) => state.cart.productsPrice)
+
+  const dispatch = useDispatch();
 
   const [menu, setMenu] = useState(false);
 
   const handleButtonOpenCart = () => {
     setMenu(!menu);
   };
+
+  useEffect (() => {
+    dispatch(updateData())
+  }, []);
 
   return (
 
