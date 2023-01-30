@@ -1,4 +1,4 @@
-import ProductCardCart from "@/components/molecules/productCardCart";
+import ProductCardCart from "../../molecules/productCardCart/index";
 //import useCart from "@/hooks/useCart";
 import { useSelector } from "react-redux";
 import { productCartType } from "@/types/types";
@@ -14,8 +14,7 @@ type products = {
 }[];
 
 const GridCartCard = () => {
-  //const { GetProducts, refresh } : any = useCart();
-  const getProducts = useSelector((state : any) => state.cart.cart)
+  const getProducts : [] = useSelector((state : any) => (state.cart.cart))
 
   return (
     <S.Grid>

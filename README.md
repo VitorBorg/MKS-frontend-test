@@ -16,6 +16,10 @@ Implementação de um sistema que lista produtos e possui um carrinho de compras
 * aumentar e diminuir a quantidade de determinado produto que está no carrinho
 * Deploy (https://profound-blini-d1d228.netlify.app)
 
+## Como executar
+
+* Para rodar a aplicação utilize: "yarn dev"
+* Para rodar os testes utilize: "yarn test"
 <!--
 ## 📄 Screenshots
 

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import * as S from "./style";
 
 import { useState } from "react";
-import CartIcon from "@/components/atoms/cartIcon";
+import CartIcon from "../../atoms/cartIcon/index";
 import GridCartCard from "../gridCartCards";
 
 import { useSelector } from "react-redux";
@@ -28,7 +28,7 @@ const Cart = () => {
   return (
 
     <>
-        <S.Cart onClick={handleButtonOpenCart}>
+        <S.Cart onClick={handleButtonOpenCart} data-testid="Carrinho">
           <CartIcon/>
           <span>{getProducts.length}</span>
         </S.Cart>

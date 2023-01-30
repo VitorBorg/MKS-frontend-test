@@ -4,7 +4,7 @@ import React from "react";
 import * as S from "./style";
 
 import { productCartType } from "@/types/types";
-import { decreaseQuantityProduct, increaseQuantityProduct, removeProduct } from "@/store/cart";
+import { decreaseQuantityProduct, increaseQuantityProduct, removeProduct } from "../../../store/cart/index";
 
 
 const ProductCardCart = ({id, photo, name, price, quantity} : productCartType
